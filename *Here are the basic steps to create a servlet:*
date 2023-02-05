@@ -1,0 +1,121 @@
+*Here are the basic steps to create a servlet:*
+Ans 👎 
+# Create a Java project in your preferred IDE.
+
+# Add the Java Servlet API library to your project's classpath.
+
+# Create a new class that extends the javax.servlet.http.HttpServlet class.
+
+# Override one or more of the HTTP request handling methods such as doGet or doPost. These methods define the behavior of the servlet when a specific type of HTTP request is received.
+
+# Optionally, you can add initialization parameters to your servlet using the @WebServlet and @WebInitParam annotations or by defining them in a deployment descriptor (web.xml) file.
+
+# Package your servlet class and any other required resources into a Java archive (JAR) file or a web application archive (WAR) file.
+
+# Deploy the archive file to a Java EE-compliant web container, such as Apache Tomcat, and test your servlet by sending HTTP requests to it.
+
+# Note: The exact steps may vary depending on the IDE, web container, and configuration you are using.
+
+
+********************************************************************************
+
+package Java.org;
+
+import java.io.IOException;
+
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebInitParam;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class Demo2
+ */
+@WebServlet(
+		urlPatterns = { "/Demo2" }, 
+		initParams = { 
+				@WebInitParam(name = "message2", value = "Initialization form annotation", description = "Initialization form annotation description")
+		})
+public class Demo2 extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public Demo2() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		ServletConfig config = getServletConfig();
+		String message2 = config.getInitParameter("message2");
+		response.getWriter().print(message2);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}
+
+Ans :- 
+* This Java code defines a servlet named "Demo2".
+
+* The servlet extends the HttpServlet class provided by the Java Servlet API.
+
+* It overrides the doGet method, which is executed when an HTTP GET request is received.
+
+* The doGet method retrieves the ServletConfig object by calling the getServletConfig method.
+
+* It then retrieves the value of the "message2" initialization parameter using ServletConfig.getInitParameter("message2").
+
+* The retrieved value is written to the HTTP response by calling response.getWriter().print(message2).
+
+* The servlet is configured using the @WebServlet and @WebInitParam annotations, which specify the URL pattern for the servlet and the value of the "message2" parameter, respectively.
+
+* When a request is sent to the URL pattern "/Demo2", the servlet's doGet method will be executed and the value of the "message2" parameter will be written to the response.
+
+************************************************************************************
+
+Explain this code 👎 
+@WebServlet(
+		urlPatterns = { "/Demo2" }, 
+		initParams = { 
+				@WebInitParam(name = "message2", value = "Initialization form annotation", description = "Initialization form annotation description")
+		})
+Ans:- 
+This part of the code specifies the configuration of the servlet using annotations.
+
+The @WebServlet annotation is used to define the URL pattern for the servlet. In this case, the servlet can be accessed at the URL "/Demo2".
+
+The initParams attribute of the @WebServlet annotation is used to define initialization parameters for the servlet. In this case, there is one initialization parameter named "message2" with the value "Initialization form annotation".
+
+The @WebInitParam annotation is used to define the details of the initialization parameter. In this case, the name of the parameter is "message2", its value is "Initialization form annotation", and its description is "Initialization form annotation description".
+
+
+
+Example 👎 
+The code you posted is an example of a Java Servlet that extends the HttpServlet class and handles HTTP requests. The servlet is defined with the @WebServlet annotation and an initialization parameter is added using the @WebInitParam annotation.
+
+Here's an example of how this servlet could be used:
+
+A client sends an HTTP GET request to the URL "/Demo2".
+
+The servlet container maps the URL to the Demo2 servlet and calls its doGet method.
+
+The doGet method retrieves the servlet's ServletConfig object and retrieves the value of the "message2" initialization parameter.
+
+The value of the "message2" parameter is written to the HTTP response using response.getWriter().print(message2).
+
+The HTTP response is sent back to the client with the value of the "message2" parameter in the body.
