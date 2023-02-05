@@ -1,0 +1,66 @@
+package Java.org;
+
+import java.io.IOException;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class Home
+ */
+@WebServlet("/")
+public class Home extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       String message;
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public Home() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see Servlet#init(ServletConfig)
+	 */
+	public void init(ServletConfig config) throws ServletException {
+		message = "message from init method";
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		response.getWriter().print(message);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}
+Ans - 
+
+This code defines a Java Servlet named Home with the following characteristics:
+
+Imports: It includes several import statements for Java classes necessary for writing a Servlet, such as HttpServlet, ServletException, HttpServletRequest, and HttpServletResponse.
+
+Annotation: The @WebServlet annotation is used to map the servlet to the URL path "/".
+
+Class Declaration: The Home class extends the HttpServlet class and overrides its methods to handle HTTP requests and responses.
+
+serialVersionUID: This field is used to ensure compatibility of the class definition with serialized versions of the class.
+
+init method: The init method is called only once during the life cycle of the servlet and is used to initialize the servlet. In this case, it sets the value of a message field to a string.
+
+doGet method: This method handles GET requests from clients. It retrieves the value of the message field and writes it to the response.
+
+doPost method: This method handles POST requests from clients. It delegates the handling of the request to the doGet method.
