@@ -1,0 +1,43 @@
+The Servlet Life Cycle refers to the stages a servlet goes through from its creation to destruction. The life cycle of a Servlet consists of the following phases:
+Servlet Class Loading: This is the first phase of the servlet life cycle. During this phase, the servlet class is loaded into memory by the servlet container and an instance of the servlet is created.
+Servlet Instantiation: In this phase, the servlet instance is created. The servlet container calls the no-args constructor of the servlet class to create an instance.
+Servlet Initialization: In this phase, the servlet container initializes the servlet instance by calling the init() method of the servlet. The init() method is called only once during the life cycle of a servlet and is used to initialize the servlet.
+Service Request: Once the servlet is initialized, it is ready to handle client requests. In this phase, the servlet container invokes the service() method of the servlet for each incoming request. The service() method is responsible for processing the request and sending the response to the client.
+Servlet Destruction: In this phase, the servlet container calls the destroy() method of the servlet to destroy it. The destroy() method is called only once during the life cycle of a servlet and is used to clean up resources and resources before the servlet is destroyed.
+
+/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/**/*/*/*/*/*/*/*/*/*/*/*/*/*/**/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*
+
+Example :- 
+import javax.servlet.*;
+import javax.servlet.http.*;
+import java.io.*;
+
+public class MyServlet extends HttpServlet {
+
+   public void init() throws ServletException {
+      // Initialization code...
+   }
+
+   public void doGet(HttpServletRequest request, HttpServletResponse response)
+      throws ServletException, IOException {
+      // Service the request
+   }
+
+   public void destroy() {
+      // Clean up resources
+   }
+}
+
+**********************************************************************************************
+The code above is an example of a simple servlet class that implements the HttpServlet class. Here's an explanation of the code, step by step:
+Import statements: The code imports the necessary classes from the javax.servlet and javax.servlet.http packages. These packages provide the classes and interfaces necessary for creating servlets.
+
+Class Definition: The class MyServlet extends the HttpServlet class. This means that MyServlet is a subclass of HttpServlet and inherits all the methods and properties of the HttpServlet class.
+
+init() method: The init() method is called by the servlet container when the servlet is first initialized. This method is used to perform any initialization required by the servlet. In this example, no specific initialization code is provided.
+
+doGet() method: The doGet() method is called by the servlet container when the servlet receives an HTTP GET request. This method is used to process the request and send a response back to the client. In this example, no specific request processing code is provided.
+
+destroy() method: The destroy() method is called by the servlet container when the servlet is being destroyed. This method is used to perform any clean-up required before the servlet is destroyed. In this example, no specific clean-up code is provided.
+
+This is just a basic example of a servlet, but it demonstrates the basic structure of a servlet and the methods that are commonly used to handle requests and perform clean-up.
