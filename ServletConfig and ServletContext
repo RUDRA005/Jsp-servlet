@@ -1,0 +1,45 @@
+The ServletConfig and ServletContext interfaces are used to provide information about the servlet and its configuration. Here's a simple explanation of each:
+
+ServletConfig: The ServletConfig interface provides information about the servlet configuration. It is created by the servlet container when the servlet is initialized and is used to pass configuration information to the servlet. The ServletConfig interface has the following methods:
+getServletName(): Returns the name of the servlet.
+getServletContext(): Returns a reference to the ServletContext object.
+getInitParameter(String name): Returns the value of the specified initialization parameter.
+
+Example:-
+public class MyServlet extends HttpServlet {
+   private ServletConfig config;
+
+   public void init(ServletConfig config) throws ServletException {
+      this.config = config;
+   }
+
+   public void doGet(HttpServletRequest request, HttpServletResponse response)
+      throws ServletException, IOException {
+      String param = config.getInitParameter("paramName");
+   }
+}
+***************************************************************
+
+ServletContext: The ServletContext interface provides information about the servlet context, which is the environment in which the servlet is running. It is created by the servlet container when the servlet is initialized and is used to provide information about the application, such as the context path and initialization parameters. The ServletContext interface has the following methods:
+getContextPath(): Returns the context path of the web application.
+getInitParameter(String name): Returns the value of the specified context initialization parameter.
+getAttribute(String name): Returns the value of the specified context attribute.
+setAttribute(String name, Object value): Sets the value of the specified context attribute.
+
+Example :- 
+public class MyServlet extends HttpServlet {
+   private ServletContext context;
+
+   public void init(ServletConfig config) throws ServletException {
+      this.context = config.getServletContext();
+   }
+
+   public void doGet(HttpServletRequest request, HttpServletResponse response)
+      throws ServletException, IOException {
+      String param = context.getInitParameter("paramName");
+   }
+}
+***********************************************************************
+
+Both ServletConfig and ServletContext are used to provide information to the servlet about its environment and configuration. 
+The ServletConfig is used to provide information about the servlet itself, while the ServletContext is used to provide information about the web application.
