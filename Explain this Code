@@ -1,0 +1,12 @@
+protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		ServletConfig config = getServletConfig();
+		String message2 = config.getInitParameter("message2");
+		response.getWriter().print(message2);
+	}
+  
+  
+Ans :- 
+This code is part of the implementation of an HTTP Servlet class "Home" in Java. It implements the doGet method which is called when an HTTP GET request is made to the URL pattern mapped to this servlet.
+When the doGet method is called, it retrieves the ServletConfig object for the servlet using the getServletConfig() method. The ServletConfig object provides access to configuration information for the servlet, such as initialization parameters.
+The code then retrieves the value of the "message2" initialization parameter from the ServletConfig object using the getInitParameter("message2") method and stores it in a variable named "message2".
+Finally, the code writes the value of the "message2" variable to the HTTP response using the print() method of the response's Writer object, obtained through response.getWriter().
