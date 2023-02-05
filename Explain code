@@ -1,0 +1,16 @@
+`public class Demo2 extends HttpServlet {
+	private static final long serialVersionUID = 1L;`
+
+
+
+Ans :- This line declares a class named Demo2 that extends the HttpServlet class. The serialVersionUID is a special field that is used to ensure that a serialized version of the class is compatible with the class definition. The value assigned to this field should be unique to the class and remain constant across different versions of the class.
+By extending the HttpServlet class, Demo2 can override its methods to handle HTTP requests and responses.
+
+*************************************************
+public Home() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+    
+Ans :- 
+The code above is the constructor for the "Home" class which extends the HttpServlet class. The "super()" call invokes the constructor of the parent HttpServlet class. The comment "TODO Auto-generated constructor stub" is a placeholder for any additional code that may need to be added in the future.
